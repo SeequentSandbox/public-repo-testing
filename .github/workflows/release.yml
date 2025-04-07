@@ -1,1 +1,30 @@
+on:
+  push:
+    branches:
+      - main
 
+jobs:
+  pypi-publish:
+    name: upload release to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      # IMPORTANT: this permission is mandatory for Trusted Publishing
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Build wheel (to dist folder)
+        run: uv build
+
+      - name: Publish package distributions to PyPI (from dist folder)
+        uses: pypa/gh-action-pypi-publish@release/v1
