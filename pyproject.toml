@@ -1,6 +1,6 @@
 [project]
 name = "public-repo-testing"
-version = "0.1.6"
+version = "0.1.8"
 description = "Add your description here"
 requires-python = ">=3.12.4"
 dependencies = []
