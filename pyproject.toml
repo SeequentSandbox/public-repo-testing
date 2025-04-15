@@ -1,6 +1,6 @@
 [project]
 name = "public-repo-testing"
-version = "0.1.8"
+version = "0.1.9"
 description = "Add your description here"
 requires-python = ">=3.12.4"
 dependencies = []
@@ -25,4 +25,4 @@ path = "README.md"
 [[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
 # Literal TOML strings (single quotes) need no escaping of backslashes.
 pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
-replacement = '[\1](https://github.com/seequentsandbox/public-repo-testing/tree/main\g<2>)'
+replacement = '[\1](https://github.com/seequentsandbox/public-repo-testing/tree/main/\g<2>)'
